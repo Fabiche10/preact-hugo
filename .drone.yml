@@ -28,4 +28,4 @@ steps:
         {{else}}
           Build {{build.number}} échoué. Oups...
         {{/success}}
-        Lien : {{ repo.owner }}.github.io/{{ repo.name }}
+        Lien : https://{{ repo.owner }}.github.io/{{ repo.name }}/
