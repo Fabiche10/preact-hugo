@@ -18,5 +18,6 @@ steps:
   - name: slack
     image: plugins/slack
     settings: 
-        webhook: https://hooks.slack.com/services/...
-        channel: drone-ci
+      webhook: 
+        from_secret : slack_webhook
+      channel: drone-ci
