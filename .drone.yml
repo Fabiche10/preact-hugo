@@ -6,3 +6,14 @@ steps:
     image: busybox
     commands:
       - echo 'Hello World'
+  
+  - name: testing
+    image: lowess/preact-cli
+    commands: 
+       - npx preact-cli create ${DRONE_REPO}#${DRONE_COMMIT} test
+       - cd test
+       - npm install
+       - npm run build
+
+#    - name: slack
+#    image: plugins/slack
