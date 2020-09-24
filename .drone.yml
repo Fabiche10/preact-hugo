@@ -15,5 +15,8 @@ steps:
        - npm install
        - npm run build
 
-#    - name: slack
-#    image: plugins/slack
+  - name: slack
+    image: plugins/slack
+    settings: 
+        webhook: https://hooks.slack.com/services/...
+        channel: drone-ci
