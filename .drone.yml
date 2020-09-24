@@ -28,3 +28,4 @@ steps:
         {{else}}
           Build {{build.number}} échoué. Oups...
         {{/success}}
+        {{ username }}
