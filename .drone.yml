@@ -15,6 +15,15 @@ steps:
        - npm install
        - npm run build
 
+  - name: publish  
+    image: plugins/gh-pages
+    settings:
+      username:
+        from_secret: USERNAME
+      password:
+        from_secret: PASSWORD
+      pages_directory: test/dist
+
   - name: slack
     image: plugins/slack
     settings: 
