@@ -23,8 +23,8 @@ steps:
       channel: drone-ci
       username: Fabiche
       template: >
-      {{#success build.status}}
-        Build {{build.number}} réussi. Wakanda forever !
-      {{else}}
-        Build {{build.number}} échoué. Oups...
-      {{/success}}
+        {{#success build.status}}
+          Build {{build.number}} réussi. Wakanda forever !
+        {{else}}
+          Build {{build.number}} échoué. Oups...
+        {{/success}}
