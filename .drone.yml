@@ -10,19 +10,11 @@ steps:
   - name: testing
     image: lowess/preact-cli
     commands: 
+       - export BASE_URL=https://${DRONE_REPO_OWNER}.github.io/preact-hugo
        - npx preact-cli create ${DRONE_REPO}#${DRONE_COMMIT} test
        - cd test
        - npm install
        - npm run build
-
-  - name: publish  
-    image: plugins/gh-pages
-    settings:
-      username:
-        from_secret: USERNAME
-      password:
-        from_secret: PASSWORD
-      pages_directory: test/dist
 
   - name: slack
     image: plugins/slack
@@ -38,3 +30,13 @@ steps:
           Build {{build.number}} échoué. Oups...
         {{/success}}
         Lien : https://{{ repo.owner }}.github.io/{{ repo.name }}/
+
+  - name: publish
+    image: plugins/gh-pages
+    settings:
+      username:
+        from_secret: USERNAME
+      password:
+        from_secret: PASSWORD
+      pages_directory: test/dist/
+    
